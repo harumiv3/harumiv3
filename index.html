@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harumi v3 — Protocolo de Blindaje</title>
+    <style>
+        :root {
+            --miku-cyan: #00f3ff;
+            --sakura-pink: #ff00ff;
+            --safety-green: #00ff41;
+            --lightning-glow: rgba(0, 243, 255, 0.8);
+        }
+
+        /* Bloqueo de scroll innecesario */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Corrige el scroll que mencionaste */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.alphacoders.com/131/1311005.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Efecto de Rayo Celeste que baja */
+        .lightning-bolt {
+            position: absolute;
+            top: -150px;
+            left: 0;
+            width: 100%;
+            height: 4px; /* Grosor del rayo */
+            background: var(--miku-cyan);
+            box-shadow: 0 0 15px var(--miku-cyan), 0 0 30px var(--miku-cyan), 0 0 50px var(--lightning-glow);
+            z-index: 100;
+            opacity: 0.7;
+            animation: lightningMove 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes lightningMove {
+            0% { top: -5%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 105%; opacity: 0; }
+        }
+
+        /* Capa de ruido visual estático */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(5, 10, 20, 0.9);
+            border: 2px solid var(--miku-cyan);
+            border-radius: 5px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 25px var(--miku-cyan), inset 0 0 15px var(--miku-cyan);
+            max-width: 750px;
+            width: 90%;
+            z-index: 10;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .container::after {
+            content: "SECURE CONNECTION: ACTIVE";
+            position: absolute;
+            top: -25px; left: 0;
+            font-size: 0.7rem;
+            color: var(--miku-cyan);
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: var(--miku-cyan);
+            text-shadow: 3px 3px 0px var(--sakura-pink);
+            animation: glitch 3s infinite;
+        }
+
+        h2 {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            margin: 10px 0;
+            color: var(--sakura-pink);
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 1px solid var(--sakura-pink);
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .description {
+            font-size: clamp(0.85rem, 3vw, 1.1rem);
+            line-height: 1.6;
+            margin: 25px 0;
+            text-align: justify;
+            border-left: 3px solid var(--miku-cyan);
+            padding-left: 15px;
+            color: #e0e0e0;
+        }
+
+        .manifesto {
+            font-style: italic;
+            color: var(--safety-green);
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: left;
+            font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+        }
+
+        .version-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 25px;
+            background: var(--miku-cyan);
+            color: black;
+            font-weight: bold;
+            font-size: 0.9rem;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            2% { transform: translate(-3px, 1px); }
+            4% { transform: translate(3px, -1px); }
+            6% { transform: translate(0); }
+            100% { transform: translate(0); }
+        }
+
+        /* Responsive Mobile */
+        @media screen and (max-width: 600px) {
+            .container { padding: 30px 15px; }
+            .description { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lightning-bolt"></div>
+
+    <div class="container">
+        <h1>HARUMI v3</h1>
+        <h2>System Protocol: Digital Sanctum</h2>
+        
+        <div class="description">
+            <p>
+                <strong>ESPECIFICACIONES TÉCNICAS:</strong> Harumi v3 es un sistema avanzado de <strong>Control Parental y Protección Web</strong> basado en Inteligencia Artificial. El núcleo del sistema emplea algoritmos de aprendizaje profundo para el análisis de tráfico y mitigación de riesgos.
+            </p>
+            <p>
+                Arquitectura de filtrado heurístico diseñada para bloquear contenido explícito y vectores de distracción, garantizando un entorno seguro y blindado.
+            </p>
+            <div class="manifesto">
+                > MÓDULO IA: ACTIVO / ANALIZANDO PAQUETES<br>
+                > FILTRADO: CONTROL PARENTAL NIVEL KERNEL<br>
+                > LICENCIA: CÓDIGO ABIERTO (OPEN SOURCE)<br>
+                > SEGURIDAD: PROTECCIÓN DE INTEGRIDAD DIGITAL
+            </div>
+        </div>
+
+        <div class="version-badge">EDICIÓN PROFESIONAL v3.0.0 — KERNEL ACTIVE</div>
+    </div>
+
+    <script>
+        // Un pequeño toque de JS para que el rayo tenga variaciones de velocidad aleatorias
+        const bolt = document.querySelector('.lightning-bolt');
+        
+        setInterval(() => {
+            // Cambia ligeramente la duración de la animación para que no sea monótona
+            const randomSpeed = (Math.random() * 2 + 3).toFixed(2);
+            bolt.style.animationDuration = `${randomSpeed}s`;
+        }, 5000);
+    </script>
+</body>
+</html>
